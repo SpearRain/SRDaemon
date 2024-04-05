@@ -3,17 +3,22 @@ plugins {
 }
 
 android {
-    namespace = "com.leviathan.srdaemon"
+    namespace = "com.leviathenn.srdaemon"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.leviathan.srdaemon"
+        applicationId = "com.leviathenn.srdaemon"
         minSdk = 16
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags += ""
+
+        }
     }
 
     buildTypes {
@@ -26,6 +31,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
@@ -37,4 +43,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    compileOnly("javax.websocket:javax.websocket-api:1.1")
+}
 }
